@@ -191,104 +191,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://iswallow.com/2021/11/27/5-%E5%87%BD%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="一碗烟火">
-      <meta itemprop="description" content="万家灯火，总有一盏为我">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="flipped-26">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/27/5-%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">javascript函数</a>
-        </h2>
-
-        <div class="post-meta">
-
-          
-            <i class="fa fa-thumb-tack"></i>
-            <font color=7D26CD>置顶</font>
-            <span class="post-meta-divider">|</span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-27 22:23:32" itemprop="dateCreated datePublished" datetime="2021-11-27T22:23:32+08:00">2021-11-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-28 00:45:33" itemprop="dateModified" datetime="2021-11-28T00:45:33+08:00">2021-11-28</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="1-耦合代码"><a href="#1-耦合代码" class="headerlink" title="1. 耦合代码"></a>1. 耦合代码</h2><p>耦合：重复代码<br>编程讲究高内聚、低耦合，将相同功能的代码提取出来放到一个黑匣子里面（函数）<br>函数是个引用值，只有调用的时候才会执行，调用几次执行几次<br>函数语法：function是关键字，text是随意取的函数名</p>
-<ol>
-<li><p>函数声明</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function text()&#123;</span><br><span class="line">执行程序</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>使用的时候只需要写text()即可调用函数，</p>
-</li>
-<li><p>函数表达式<br>命名函数表达式</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var text = function abc()&#123;</span><br><span class="line">    执行程序</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>依然执行text，而不是abc，但text的name是abc也就是说<br>匿名函数表达式（一般函数表达式通指匿名函数表达式）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">document.write(text.name)运行结果为abc</span><br><span class="line">var text = function()&#123;</span><br><span class="line">    执行程序</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面这个text的name属性是他自己也就是text</p>
-<h3 id="1-1-参数"><a href="#1-1-参数" class="headerlink" title="1.1 参数"></a>1.1 参数</h3></li>
-<li><p>参数写在小括号里面，有了参数之后函数才具有抽象规则的作用，通过不同的参数可以得到不同的结果</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function text(a,b)&#123;</span><br><span class="line">    document.write(a+b);</span><br><span class="line">&#125;</span><br><span class="line">text(1,2)</span><br></pre></td></tr></table></figure>
-<p>上述第一段代码表示在函数里面建立两个变量a，b(形式参数），然后通过调用执行的时候将1，2分别赋给函数text(1,2)（实际参数），然后执行函数代码，所以上述代码运行结果为3，<br>因此参数的作用是用来传参的，将需要的参数传达给函数执行代码</p>
-</li>
-<li><p>不定参<br>形式参数和实际参数可以不对等，如果形参多，则多余的形参值为undefined，如果实际参数多则对应取值，后面的实际参数没有作用，但函数会创建一个arguments列表将实参放在里面<br>当形式参数与实际参数对应时，改变形参的值，arguments里面的值也会变（形参比实参少或者等于）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function text(a,b)&#123;</span><br><span class="line">    b=3</span><br><span class="line">    document.write(arguments[1]);</span><br><span class="line">&#125;</span><br><span class="line">text(1,2)</span><br></pre></td></tr></table></figure>
-<p>上述代码运行结果为3，arguments[1]的值和b的值是映射关系</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function text(a,b)&#123;</span><br><span class="line">    b=3</span><br><span class="line">    document.write(arguments[1]);</span><br><span class="line">&#125;</span><br><span class="line">text(1)</span><br></pre></td></tr></table></figure>
-<p>上述代码运行结果为undefined，是由于arguments的值是和实际参数对应，text(1)，arguments=[1],此时改变b的值和arguments没有关系，而arguments[1]由于没有值，所以输出结果为undifined</p>
-</li>
-<li><p>return<br>在函数逻辑的最后终止函数<br>返回值</p>
-</li>
-<li><p>全局变量和局部变量<br>全局变量：函数外面的变量，是整个代码都可以使用的变量<br>局部变量：函数里面的变量，如果不引用函数就无法使用该变量，如果在函数外面使用该变量则会报错，说该变量is not defined</p>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://iswallow.com/2021/11/28/this-call-apply/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -345,6 +247,100 @@
 <p>然后在打印全局变量里面的this，在GO里面找，打印结果为window</p>
 <h4 id="3-谁调用this指向谁"><a href="#3-谁调用this指向谁" class="headerlink" title="3. 谁调用this指向谁"></a>3. 谁调用this指向谁</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var name=&quot;window1&quot;;</span><br><span class="line">var obj=&#123;</span><br><span class="line">    name:&quot;obj1&quot;,</span><br><span class="line">    say:function()&#123;</span><br><span class="line">        console.log(this.name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.say();             //&quot;obj1&quot;，由于是obj调用了这个方法，所以this指向的是obj，所以在obj的执行期上下文找name属性的值</span><br><span class="line">var fun=obj.say;       //此处相当于把该函数体保存到了全局环境中</span><br><span class="line">fun()                  //&quot;window1&quot;，所以在此执行fun()，相当于直接在全局执行console.log(this.name)，所以在全局的执行期上下文找name属性的值</span><br><span class="line">obj.say.call(window)   //&quot;window1&quot;,这是call改变了this指向，所以this由原本指向obj改成指向了window</span><br><span class="line">fun.call(obj)          //&quot;obj1&quot;，这是call改变了this</span><br><span class="line">指向，由原来的window指向obj</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <p>首先第一个</p>
+
+      
+    </div>
+
+    
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://iswallow.com/2021/11/27/5-%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="一碗烟火">
+      <meta itemprop="description" content="万家灯火，总有一盏为我">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="flipped-26">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/27/5-%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">javascript函数</a>
+        </h2>
+
+        <div class="post-meta">
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-27 22:23:32" itemprop="dateCreated datePublished" datetime="2021-11-27T22:23:32+08:00">2021-11-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-28 13:56:01" itemprop="dateModified" datetime="2021-11-28T13:56:01+08:00">2021-11-28</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="1-耦合代码"><a href="#1-耦合代码" class="headerlink" title="1. 耦合代码"></a>1. 耦合代码</h2><p>耦合：重复代码<br>编程讲究高内聚、低耦合，将相同功能的代码提取出来放到一个黑匣子里面（函数）<br>函数是个引用值，只有调用的时候才会执行，调用几次执行几次<br>函数语法：function是关键字，text是随意取的函数名</p>
+<ol>
+<li><p>函数声明</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function text()&#123;</span><br><span class="line">执行程序</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用的时候只需要写text()即可调用函数，</p>
+</li>
+<li><p>函数表达式<br>命名函数表达式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var text = function abc()&#123;</span><br><span class="line">    执行程序</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>依然执行text，而不是abc，但text的name是abc也就是说<br>匿名函数表达式（一般函数表达式通指匿名函数表达式）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">document.write(text.name)运行结果为abc</span><br><span class="line">var text = function()&#123;</span><br><span class="line">    执行程序</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面这个text的name属性是他自己也就是text</p>
+<h3 id="1-1-参数"><a href="#1-1-参数" class="headerlink" title="1.1 参数"></a>1.1 参数</h3></li>
+<li><p>参数写在小括号里面，有了参数之后函数才具有抽象规则的作用，通过不同的参数可以得到不同的结果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function text(a,b)&#123;</span><br><span class="line">    document.write(a+b);</span><br><span class="line">&#125;</span><br><span class="line">text(1,2)</span><br></pre></td></tr></table></figure>
+<p>上述第一段代码表示在函数里面建立两个变量a，b(形式参数），然后通过调用执行的时候将1，2分别赋给函数text(1,2)（实际参数），然后执行函数代码，所以上述代码运行结果为3，<br>因此参数的作用是用来传参的，将需要的参数传达给函数执行代码</p>
+</li>
+<li><p>不定参<br>形式参数和实际参数可以不对等，如果形参多，则多余的形参值为undefined，如果实际参数多则对应取值，后面的实际参数没有作用，但函数会创建一个arguments列表将实参放在里面<br>当形式参数与实际参数对应时，改变形参的值，arguments里面的值也会变（形参比实参少或者等于）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function text(a,b)&#123;</span><br><span class="line">    b=3</span><br><span class="line">    document.write(arguments[1]);</span><br><span class="line">&#125;</span><br><span class="line">text(1,2)</span><br></pre></td></tr></table></figure>
+<p>上述代码运行结果为3，arguments[1]的值和b的值是映射关系</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function text(a,b)&#123;</span><br><span class="line">    b=3</span><br><span class="line">    document.write(arguments[1]);</span><br><span class="line">&#125;</span><br><span class="line">text(1)</span><br></pre></td></tr></table></figure>
+<p>上述代码运行结果为undefined，是由于arguments的值是和实际参数对应，text(1)，arguments=[1],此时改变b的值和arguments没有关系，而arguments[1]由于没有值，所以输出结果为undifined</p>
+</li>
+<li><p>return<br>在函数逻辑的最后终止函数<br>返回值</p>
+</li>
+<li><p>全局变量和局部变量<br>全局变量：函数外面的变量，是整个代码都可以使用的变量<br>局部变量：函数里面的变量，如果不引用函数就无法使用该变量，如果在函数外面使用该变量则会报错，说该变量is not defined</p>
+</li>
+</ol>
 
       
     </div>
